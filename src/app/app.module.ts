@@ -24,6 +24,7 @@ import { SummaryComponent } from './dashboard-user/summary/summary.component';
 import { CardDataMockService } from 'src/core/mock/card-data.mock.services';
 import { CardService } from './services/card/card.service';
 import { CardDetailComponent } from './dashboard-user/card-detail/card-detail.component';
+import { TransactionDataMockServices } from 'src/core/mock/transaction-data.mock.services';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,11 @@ import { CardDetailComponent } from './dashboard-user/card-detail/card-detail.co
     MatListModule,
   ],
   exports: [SidenavComponent],
-  providers: [AuthenticateService, CardService, AuthMockService, UserDataMockService, CardDataMockService],
+  providers: [
+    //Services
+    AuthenticateService, CardService,
+    //Mock Data Services
+    AuthMockService, UserDataMockService, CardDataMockService, TransactionDataMockServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

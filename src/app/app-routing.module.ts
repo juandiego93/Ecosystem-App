@@ -4,6 +4,7 @@ import { DashboardUserRoutingModule } from './dashboard-user/dashboard-user-rout
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'login' , pathMatch: 'full'},
   { path: '', loadChildren: () => import('./authentication/authentication-routing.module').then(module_ => module_.AuthenticationRoutingModule) },
   { path: 'dashboard', loadChildren: () => import('./dashboard-user/dashboard-user-routing.module').then(module_ => module_.DashboardUserRoutingModule) },
 
