@@ -11,10 +11,9 @@ export class User {
     email: string
     cards: Card[]
     services: Service[]
-    transactions: Transaction[]
 
     constructor(IDNumber: number, name: string, lastname: string, phone: number, email: string, cards: Card[],
-        services: Service[], transactions: Transaction[]) {
+        services: Service[]) {
         this.IDNumber = IDNumber
         this.name = name;
         this.lastname = lastname;
@@ -22,7 +21,6 @@ export class User {
         this.email = email
         this.cards = cards
         this.services = services
-        this.transactions = transactions
     }
 
 }

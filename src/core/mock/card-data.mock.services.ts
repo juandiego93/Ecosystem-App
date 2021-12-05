@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../tools/classes/Card.models';
 import { CardDataInterface } from '../tools/interfaces/CardData.interface';
+import { TransactionDataMockServices } from './transaction-data.mock.services';
 
 
 @Injectable()
@@ -17,7 +18,16 @@ export class CardDataMockService implements CardDataInterface {
             ccv: 194,
             totalCapital: 1000000,
             totalDebts: 22222121,
-            paymentDate: '12/10/2022'
+            paymentDate: '12/10/2022',
+            transactions: [
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(1),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(43),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(88),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(232),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(35),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(6555),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(7666),
+            ],
         },
         {
             numID: 2,
@@ -29,7 +39,16 @@ export class CardDataMockService implements CardDataInterface {
             ccv: 194,
             totalCapital: 1000000,
             totalDebts: 22222121,
-            paymentDate: '12/10/2022'
+            paymentDate: '12/10/2022',
+            transactions: [
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(1),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(43),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(88),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(232),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(35),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(6555),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(7666),
+            ],
         },
         {
             numID: 3,
@@ -41,7 +60,16 @@ export class CardDataMockService implements CardDataInterface {
             ccv: 477,
             totalCapital: 1000000,
             totalDebts: 22222121,
-            paymentDate: '12/10/2022'
+            paymentDate: '12/10/2022',
+            transactions: [
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(1),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(43),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(88),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(232),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(35),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(6555),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(7666),
+            ],
         },
         {
             numID: 4,
@@ -53,11 +81,20 @@ export class CardDataMockService implements CardDataInterface {
             ccv: 477,
             totalCapital: 1000000,
             totalDebts: 22222121,
-            paymentDate: '12/10/2022'
+            paymentDate: '12/10/2022',
+            transactions: [
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(1),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(43),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(88),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(232),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(35),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(6555),
+                this.transactionDataMockServices.GetTransactionByReferenceNumber(7666),
+            ],
         }
     ];
 
-    constructor() { }
+    constructor(private transactionDataMockServices: TransactionDataMockServices) { }
 
     GetUCardsData(): Card[] {
         return this.cardsData

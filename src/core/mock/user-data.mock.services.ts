@@ -7,7 +7,7 @@ import { TransactionDataMockServices } from './transaction-data.mock.services';
 
 @Injectable()
 export class UserDataMockService implements UserDataInterface {
-    constructor(private cardDataMockService: CardDataMockService, private transactionDataMockServices: TransactionDataMockServices) { }
+    constructor(private cardDataMockService: CardDataMockService, ) { }
 
     private usersData: User[] = [
         {
@@ -21,15 +21,7 @@ export class UserDataMockService implements UserDataInterface {
                 this.cardDataMockService.GetCardByID(2),
             ],
             services: [],
-            transactions: [
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(1),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(43),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(88),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(232),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(35),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(6555),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(7666),
-            ],
+           
         },
         {
             IDNumber: 2312332,
@@ -41,13 +33,6 @@ export class UserDataMockService implements UserDataInterface {
                 this.cardDataMockService.GetCardByID(3),
             ],
             services: [],
-            transactions: [
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(500011),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(9000),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(33443),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(444),
-                this.transactionDataMockServices.GetTransactionByReferenceNumber(9900),
-            ],
         }
     ];
 
