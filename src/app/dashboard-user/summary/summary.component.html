@@ -1,0 +1,67 @@
+<div class="container mt-5 rounded-circle">
+    <div *ngFor="let item of this.currentUser.cards" class="mt-5">
+        <nav *ngIf="item.type == 'Debito'; else Credit" class="navbar navbar-light background mt-4 mb-4"
+            style="border-radius: 50px;">
+            <div
+                style="height:100px; width:100px; background-color:#0147cb; border-radius: 50%; display: flex; color:white;justify-content:center; align-items:center;">
+                Debit Card
+            </div>
+            <span class="navbar-text total-balance">
+                <div class="row">
+                    <div class="col-12 title-card">Total Capital</div>
+                    <div class="col-12"> {{item.totalCapital | currency:'USD'}} </div>
+                </div>
+            </span>
+            <span class="navbar-text total-balance">
+                <div class="row">
+                    <div class="col-12 title-card">Total Debts</div>
+                    <div class="col-12"> {{item.totalDebts | currency:'USD'}} </div>
+                </div>
+            </span>
+            <span class="navbar-text total-balance">
+                <div class="row">
+                    <div class="col-12 title-card">Payment Date</div>
+                    <div class="col-12"> {{item.paymentDate | date:'shortDate'}} </div>
+                </div>
+            </span>
+            <a class="navbar-brand view-datail ">
+                <button [routerLink]="['card-detail', item.numID]" class="btn btn-light"
+                    style="border: 1px solid black; border-radius:50px;">
+                    View detail
+                </button>
+            </a>
+        </nav>
+        <ng-template #Credit>
+            <nav class="navbar navbar-light background mt-4 mb-4" style="border-radius: 50px;">
+                <div
+                    style="height:100px; width:100px; background-color:#01f2e3; border-radius: 50%; display: flex; color:white;justify-content:center; align-items:center;">
+                    Credit Card
+                </div>
+                <span class="navbar-text total-balance">
+                    <div class="row">
+                        <div class="col-12 title-card">Total Capital</div>
+                        <div class="col-12"> {{item.totalCapital | currency:'USD'}} </div>
+                    </div>
+                </span>
+                <span class="navbar-text total-balance">
+                    <div class="row">
+                        <div class="col-12 title-card">Total Debts</div>
+                        <div class="col-12"> {{item.totalDebts | currency:'USD'}} </div>
+                    </div>
+                </span>
+                <span class="navbar-text total-balance">
+                    <div class="row">
+                        <div class="col-12 title-card">Payment Date</div>
+                        <div class="col-12"> {{item.paymentDate | date:'shortDate'}} </div>
+                    </div>
+                </span>
+                <a class="navbar-brand view-datail ">
+                    <button [routerLink]="['card-detail', item.numID]" class="btn btn-light"
+                        style="border: 1px solid black; border-radius:50px;">
+                        View detail
+                    </button>
+                </a>
+            </nav>
+        </ng-template>
+    </div>
+</div>
