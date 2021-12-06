@@ -13,28 +13,35 @@
             <div class="card__ccv">{{this.cardSelected?.ccv}}</div>
         </div>
     </div>
-
-
-    <table class="table table-hover mt-5">
+    <div class="container text-center mt-5">
+        <h2 class="" style="font-size:20px; font-weight: bold;">
+            Transactions List
+        </h2>
+    </div>
+    <table class="table table-hover mt-1 text-center" style="cursor: pointer;">
         <thead>
             <tr>
-                <th scope="col">Número Referencia</th>
-                <th scope="col">Código Verificación</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Valor</th>
-                <th scope="col">Descripción</th>
+                <th scope="col">Reference Number</th>
+                <!-- <th scope="col">Verification code</th> -->
+                <th scope="col">Date</th>
+                <!-- <th scope="col">Value</th> -->
+                <th scope="col">Description</th>
+                <!-- <th scope="col">Source Account</th> -->
+                <!-- <th scope="col">Destination Account</th> -->
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let transaction of [1,2,3]">
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let transaction of this.cardSelected?.transactions"
+                [routerLink]="['transaction-detail', transaction.referenceNum]" data-toggle="tooltip"
+                data-placement="right" title="Click here, View Detail">
+                <th>{{transaction.referenceNum}}</th>
+                <!-- <th>{{transaction.verificationNumber}}</th> [routerLink]="['./transaction-detail', transaction.referenceNum]"-->
+                <td>{{transaction.date}}</td>
+                <!-- <td>{{transaction.value}}</td> -->
+                <td>{{transaction.description}}</td>
+                <!-- <td>{{transaction.sourceAccount}}</td> -->
+                <!-- <td>{{transaction.destinationAccount}}</td> -->
             </tr>
         </tbody>
     </table>
-
-
 </div>

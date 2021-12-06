@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticateService } from 'src/app/services/auth/authenticate.service';
+import { UserLogin } from '../../../core/tools/classes/UserLogin.models';
+import { Session } from 'src/core/tools/classes/Session.models';
+import { StorageService } from 'src/app/services/storage/storage.service';
 declare var alertify: any;
 
 @Component({
@@ -15,41 +18,40 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public loading = false;
   public submitted: boolean = false
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticateService,
+    private storageService: StorageService,
   ) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      IDNumber: ['', Validators.required],
       password: ['', Validators.required]
     });
-
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   // convenience getter for easy access to form fields
   get formLogin() { return this.loginForm.controls; }
 
   public onSubmit() {
     this.submitted = true
-    if (!this.loginForm.invalid) {
-      this.authService.login(this.loginForm.value).subscribe(data => {
-        if (data) {
-          alertify.success('Successful login')
-          this.router.navigateByUrl('/dashboard');
-          return
-        } else {
-          alertify.error('Invalid credentials. <br> Check your data')
-        }
+    if (this.loginForm.valid) {
+      this.authService.login(new UserLogin(this.loginForm.value)).subscribe(data => {
+        this.correctLogin(data)
       }, err => {
-        alertify.error(`${err.error.message}`)
+        alertify.error(`${err.message}`)
       })
       return;
     }
     this.loading = true;
+  }
+
+  private correctLogin(data: Session) {
+    this.storageService.setCurrentSession(data);
+    this.router.navigate(['dashboard']);
   }
 }

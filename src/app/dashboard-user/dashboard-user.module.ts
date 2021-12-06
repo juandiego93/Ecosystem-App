@@ -9,12 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidenavComponent } from '../sidenav/sidenav.component';
 import { SummaryComponent } from './summary/summary.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
+import { DashboardUserRoutingModule } from './dashboard-user-routing.module';
 
 @NgModule({
   declarations: [
     DashboardUserComponent,
     SummaryComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    TransactionDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +27,7 @@ import { CardDetailComponent } from './card-detail/card-detail.component';
     FormsModule,
     ReactiveFormsModule,
     SidenavComponent,
+    DashboardUserRoutingModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [MatSidenavModule],

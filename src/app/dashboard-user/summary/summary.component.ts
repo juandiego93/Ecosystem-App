@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/core/tools/classes/User.models';
 import { AuthenticateService } from '../../services/auth/authenticate.service';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-summary',
@@ -8,11 +9,12 @@ import { AuthenticateService } from '../../services/auth/authenticate.service';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-  public currentUser: User
+  private currentUser: User | void
+  public cards: any
+  constructor(private authenticateService: AuthenticateService, private storageService: StorageService) {
+    this.currentUser = this.storageService.getCurrentUser()
+    this.cards = this.currentUser.cards
 
-  constructor(private authenticateService: AuthenticateService) {
-    this.currentUser = this.authenticateService.getSessionStorage()
-    console.log(this.currentUser)
   }
 
   ngOnInit(): void {

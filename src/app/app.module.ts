@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { AuthMockService } from 'src/core/mock/auth-mock.services';
 
 // Components
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +24,10 @@ import { CardDataMockService } from 'src/core/mock/card-data.mock.services';
 import { CardService } from './services/card/card.service';
 import { CardDetailComponent } from './dashboard-user/card-detail/card-detail.component';
 import { TransactionDataMockServices } from 'src/core/mock/transaction-data.mock.services';
+import { TransactionDetailComponent } from './dashboard-user/transaction-detail/transaction-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { StorageService } from './services/storage/storage.service';
+import { fakeBackendProvider } from 'src/core/serverFake/fake-backend';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { TransactionDataMockServices } from 'src/core/mock/transaction-data.mock
     DashboardUserComponent,
     SummaryComponent,
     CardDetailComponent,
+    TransactionDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -48,13 +52,16 @@ import { TransactionDataMockServices } from 'src/core/mock/transaction-data.mock
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    HttpClientModule
   ],
   exports: [SidenavComponent],
   providers: [
+    //Server Fake
+    fakeBackendProvider,
     //Services
-    AuthenticateService, CardService,
+    AuthenticateService, CardService, StorageService,
     //Mock Data Services
-    AuthMockService, UserDataMockService, CardDataMockService, TransactionDataMockServices],
+    UserDataMockService, CardDataMockService, TransactionDataMockServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

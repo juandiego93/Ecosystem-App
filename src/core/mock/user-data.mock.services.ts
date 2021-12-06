@@ -7,7 +7,7 @@ import { TransactionDataMockServices } from './transaction-data.mock.services';
 
 @Injectable()
 export class UserDataMockService implements UserDataInterface {
-    constructor(private cardDataMockService: CardDataMockService, ) { }
+    constructor(private cardDataMockService: CardDataMockService,) { }
 
     private usersData: User[] = [
         {
@@ -16,12 +16,14 @@ export class UserDataMockService implements UserDataInterface {
             lastname: 'Osorio Castrillón',
             phone: 3207043303,
             email: 'juand.osorio@hotmail.com',
+            username: 'juandiego',
+            password: 'abcd',
             cards: [
                 this.cardDataMockService.GetCardByID(1),
                 this.cardDataMockService.GetCardByID(2),
             ],
             services: [],
-           
+
         },
         {
             IDNumber: 2312332,
@@ -29,6 +31,8 @@ export class UserDataMockService implements UserDataInterface {
             lastname: 'Fulanito',
             phone: 3207043303,
             email: 'cosme.fulanito@hotmail.com',
+            username: 'cosme',
+            password: 'abcd',
             cards: [
                 this.cardDataMockService.GetCardByID(3),
             ],

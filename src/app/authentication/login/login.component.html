@@ -4,14 +4,13 @@
     <div class="row row justify-content-md-center mt-5">
         <div class="col-6 align-self-center mt-2">
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
                 <div class="form-group row">
-                    <label for="username" class="col-sm-2 col-form-label">Number Identification:</label>
+                    <label for="IDNumber" class="col-sm-2 col-form-label">Number Identification:</label>
                     <div class="col-sm-10">
-                        <input type="text" formControlName="username" class="form-control" placeholder="Pepito Perez"
-                            [ngClass]="{ 'is-invalid': submitted && formLogin['username']['errors'] }">
-                        <div *ngIf="submitted && formLogin['username']['errors']" class="invalid-feedback">
-                            <div *ngIf="formLogin['username']['errors']['required']">Username is required</div>
+                        <input type="number" formControlName="IDNumber" class="form-control" placeholder="Pepito Perez"
+                            [ngClass]="{ 'is-invalid': submitted && formLogin['IDNumber']['errors'] }">
+                        <div *ngIf="submitted && formLogin['IDNumber']['errors']" class="invalid-feedback">
+                            <div *ngIf="formLogin['IDNumber']['errors']['required']">IDNumber is required</div>
                         </div>
                     </div>
                 </div>
@@ -19,14 +18,15 @@
                     <label for="password" class="col-sm-2 col-form-label">Password:</label>
                     <div class="col-sm-10">
                         <input type="password" formControlName="password" class="form-control"
-                            [ngClass]="{ 'is-invalid': submitted && formLogin['username']['errors'] }">
+                            [ngClass]="{ 'is-invalid': submitted && formLogin['password']['errors'] }">
                         <div *ngIf="submitted && formLogin['password']['errors']" class="invalid-feedback">
                             <div *ngIf="formLogin['password']['errors']['required']">Password is required</div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group text-center">
-                    <button *ngIf="!formLogin['username']['errors'] && !formLogin['password']['errors']" class="btn btn-primary button-custom-login mt-3 ">
+                    <!-- <button *ngIf="!formLogin['username']['errors'] && !formLogin['password']['errors']" -->
+                    <button [disabled]="!this.loginForm.valid" class="btn btn-primary button-custom-login mt-3 ">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                         Login
                     </button>
@@ -36,10 +36,6 @@
     </div>
 </div>
 <footer class="text-center">
-    <div class="container p-4">
-
-    </div>
-
     <div class="text-center p-3 ">
         <div class="row">
             <div class="col-5 d-flex justify-content-end font-register">

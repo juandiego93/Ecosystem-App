@@ -11,9 +11,11 @@ export class User {
     email: string
     cards: Card[]
     services: Service[]
+    username: string
+    password?: string
 
     constructor(IDNumber: number, name: string, lastname: string, phone: number, email: string, cards: Card[],
-        services: Service[]) {
+        services: Service[], username: string, password: string) {
         this.IDNumber = IDNumber
         this.name = name;
         this.lastname = lastname;
@@ -21,6 +23,8 @@ export class User {
         this.email = email
         this.cards = cards
         this.services = services
+        this.username = username
+        this.password = password
     }
 
 }

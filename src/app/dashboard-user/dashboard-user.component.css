@@ -1,4 +1,10 @@
-.example-container {}
+.navbar-custome {
+    /* padding: .5rem .1rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 .example-sidenav-content {
     display: flex;
@@ -46,9 +52,9 @@ button {
 
 .image-dollar {
     position: absolute;
-    top: 30px;
+    top: 32px;
     left: 80px;
-    width: 38%;
+    width: 28%;
 }
 
 
@@ -56,7 +62,7 @@ button {
     position: relative;
     top: 12px;
     left: 35px;
-    width: 48%;
+    width: 40%;
 }
 
 

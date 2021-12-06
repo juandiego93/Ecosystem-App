@@ -1,8 +1,8 @@
 export class UserLogin {
-    username: string
-    password: string
-    constructor(username: string, password: string) {
-        this.username = username
-        this.password = password
+    public IDNumber: string
+    public password: string
+    constructor(object: any) {
+        this.IDNumber = object.IDNumber ? object.IDNumber : null
+        this.password = object.password ? object.password : null
     }
 }

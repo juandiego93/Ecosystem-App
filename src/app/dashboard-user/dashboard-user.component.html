@@ -33,13 +33,43 @@
                 </g>
             </svg>
         </div>
-        <div class="items-from-sidenav ">
+        <div class="items-from-sidenav mt-2 ">
             <h3> ACCOUNTS </h3>
-            <p>
+            <p [routerLink]="['/dashboard']">
                 Account Summary
             </p>
             <p>
                 Accounts
+            </p>
+        </div>
+        <div class="items-from-sidenav mt-2 ">
+            <h3> TRANSACTIONS </h3>
+            <p>
+                Inquire Transactions
+            </p>
+            <p>
+                Fund Transfer
+            </p>
+            <p>
+                Bill Payments
+            </p>
+        </div>
+        <div class="items-from-sidenav mt-2 ">
+            <h3> SERVICES </h3>
+            <p>
+                Accounts Statements
+            </p>
+            <p>
+                Enroll New Account
+            </p>
+            <p>
+                Enroll a Credit Card
+            </p>
+            <p>
+                Card Replacement
+            </p>
+            <p>
+                New Checkbook
             </p>
         </div>
     </mat-drawer>
@@ -47,7 +77,7 @@
     <div class="example-sidenav-content">
         <div class="row w-100">
             <div class="col-md-12">
-                <nav class="navbar navbar-expand-lg navbar-light " style="padding: .5rem .1rem;">
+                <nav class="navbar navbar-expand-lg navbar-light navbar-custome">
                     <span class="navbar-text p-0 ml-2 mr-2" mat-button
                         (click)="drawer.toggle(); this.hideLabelOpenMenu()">
                         <label *ngIf="!this.menuSidenav" for="" style="margin:0;">Open menu</label>
@@ -57,6 +87,17 @@
                         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                    <span class="navbar-text">
+                        <div class="row">
+                            <a class="navbar-brand navbar-custome">
+                                <img class="mr-2 ml-2" src="assets/img/notif.png" width="20" height="20" alt="">
+                                <img class="mr-2 ml-2" src="assets/img/message.png" width="20" height="20" alt="">
+                                <img class="mr-2 ml-2" src="assets/img/man.png" width="30" height="30" alt="">
+                                <img class="mr-2 ml-2" src="assets/img/exit.png" width="30" height="30" alt=""
+                                    data-toggle="tooltip" data-placement="right" title="Close Session" (click)="logOutSession()" >
+                            </a>
+                        </div>
+                    </span>
                 </nav>
                 <nav class="navbar navbar-dark " style="width: 102.5%; background-color: #0147cb;    height: 120px;">
                     <a class="navbar-brand">

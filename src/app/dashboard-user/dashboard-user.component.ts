@@ -5,6 +5,7 @@ import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticateService } from '../services/auth/authenticate.service';
 import { UserLogin } from 'src/core/tools/classes/UserLogin.models';
 import { User } from '../../core/tools/classes/User.models';
+import { StorageService } from '../services/storage/storage.service';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -20,11 +21,11 @@ export class DashboardUserComponent implements OnInit {
       shareReplay()
     );
 
-  public currentUser: User
+  public currentUser: User | any
   public menuSidenav: boolean
 
-  constructor(private breakpointObserver: BreakpointObserver, private authenticateService: AuthenticateService) {
-    this.currentUser = this.authenticateService.getSessionStorage()
+  constructor(private breakpointObserver: BreakpointObserver, private authenticateService: AuthenticateService, private storageService: StorageService) {
+    this.currentUser = this.storageService.getCurrentUser()
     this.menuSidenav = false
   }
 
@@ -36,10 +37,16 @@ export class DashboardUserComponent implements OnInit {
 
   getTotalBalanceCards() {
     let total = 0
-    this.currentUser.cards.forEach(card => {
+    this.currentUser.cards.forEach((card: any) => {
       total += card.totalCapital
     })
     return total
+  }
+
+  logOutSession() {
+    this.authenticateService.logout().subscribe(
+      response => { if (response) { this.storageService.logout(); } }
+    );
   }
 
 }
