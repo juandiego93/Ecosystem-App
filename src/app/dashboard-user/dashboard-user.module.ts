@@ -11,6 +11,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
 import { TransactionDetailComponent } from './transaction-detail/transaction-detail.component';
 import { DashboardUserRoutingModule } from './dashboard-user-routing.module';
+import { NewProductComponent } from './new-product/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { DashboardUserRoutingModule } from './dashboard-user-routing.module';
     SummaryComponent,
     CardDetailComponent,
     TransactionDetailComponent,
+    NewProductComponent,
   ],
   imports: [
     CommonModule,

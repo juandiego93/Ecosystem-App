@@ -94,7 +94,8 @@
                                 <img class="mr-2 ml-2" src="assets/img/message.png" width="20" height="20" alt="">
                                 <img class="mr-2 ml-2" src="assets/img/man.png" width="30" height="30" alt="">
                                 <img class="mr-2 ml-2" src="assets/img/exit.png" width="30" height="30" alt=""
-                                    data-toggle="tooltip" data-placement="right" title="Close Session" (click)="logOutSession()" >
+                                    data-toggle="tooltip" data-placement="right" title="Close Session"
+                                    (click)="logOutSession()">
                             </a>
                         </div>
                     </span>
@@ -115,7 +116,7 @@
                     <span class="navbar-text">
                         <div class="row text-center">
                             <div class="col-12 mb-1">
-                                <button class="btn ">
+                                <button class="btn" [routerLink]="['new-product']">
                                     Request new product
                                 </button>
                             </div>

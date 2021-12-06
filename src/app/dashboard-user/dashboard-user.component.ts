@@ -3,9 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AuthenticateService } from '../services/auth/authenticate.service';
-import { UserLogin } from 'src/core/tools/classes/UserLogin.models';
 import { User } from '../../core/tools/classes/User.models';
 import { StorageService } from '../services/storage/storage.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-user',
@@ -24,9 +24,10 @@ export class DashboardUserComponent implements OnInit {
   public currentUser: User | any
   public menuSidenav: boolean
 
-  constructor(private breakpointObserver: BreakpointObserver, private authenticateService: AuthenticateService, private storageService: StorageService) {
+  constructor(private route: ActivatedRoute, private breakpointObserver: BreakpointObserver, private authenticateService: AuthenticateService, private storageService: StorageService) {
     this.currentUser = this.storageService.getCurrentUser()
     this.menuSidenav = false
+
   }
 
   ngOnInit(): void { }
@@ -48,5 +49,4 @@ export class DashboardUserComponent implements OnInit {
       response => { if (response) { this.storageService.logout(); } }
     );
   }
-
 }
