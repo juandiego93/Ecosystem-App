@@ -1,6 +1,3 @@
-/*
- * xavics 26/10/18
- */
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
@@ -33,10 +30,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           if (params.password === found.password) {
             return of(new HttpResponse({ status: 200, body: { token: 'fake-token-jwt', user: found } }));
           } else {
-            return throwError({ code: 2, message: 'The password does not match ' });
+            return throwError({ code: 2, message: 'Invalid credentials, verify your data' });
           }
         } else {
-          return throwError({ code: 1, message: 'Username does not exists' });
+          return throwError({ code: 1, message: 'Invalid credentials, verify your data' });
         }
 
       }
