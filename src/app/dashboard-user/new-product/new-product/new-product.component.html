@@ -1,5 +1,5 @@
-<div class="container-custome text-center">
-    <div class="row mt-4 mb-3">
+<div class="row text-center">
+    <div class="col-12 mt-4 mb-3 fonts_">
         <div class="col-12">
             <h3>Request</h3>
         </div>
@@ -10,40 +10,65 @@
             <p>Instant payments, and a lot of withdrawal methods available</p>
         </div>
     </div>
-    <div class="row mt-3">
+    <div class="col-12 mt-3">
         <div class="offset-md-4 col-md-4 offset-md-4">
-            <form>
+            <form [formGroup]="newProductForm" (ngSubmit)="sendRequestNewProduct()">
                 <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <label for="product" class="col-sm-2 col-form-label">Product</label>
                     <div class="col-sm-10">
-                        <select class="form-control">
-                            <option>Default select</option>
-                            <option>Default select</option>
-                            <option>Default select</option>
-                            <option>Default select</option>
-                            <option>Default select</option>
+                        <select formControlName="nameProduct" class="form-control" #selectList
+                            (change)="selectObjectProduct(selectList.value)"
+                            [ngClass]="{ 'is-invalid': submitted && newProductForm['controls']['nameProduct']['errors'] }">
+                            <option value="" selected disabled hidden>Select here</option>
+                            <option *ngFor="let product of this.allProductsAvailable" [value]="product.id">
+                                {{product.nameProduct}}</option>
                         </select>
+                        <div *ngIf="submitted && newProductForm['controls']['nameProduct']['errors']"
+                            class="invalid-feedback">
+                            <div *ngIf="newProductForm['controls']['nameProduct']['errors']['required']">
+                                Product is required
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label for="cellphone" class="col-sm-2 col-form-label">Cellphone</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPassword" placeholder="Password">
-                        <small id="emailHelp" class="form-text text-muted" style="display: flex;">We'll never share your
-                            email with anyone else.</small>
+                        <input formControlName="cellPhone" type="number" name="number" class="form-control"
+                            id="cellphone" placeholder="3207043303"
+                            [ngClass]="{ 'is-invalid': submitted && newProductForm['controls']['cellPhone']['errors'] }">
+                        <small id="passwordHelp" class="form-text text-muted" style="display: flex;">
+                            Write the number you want to be contacted at
+                        </small>
+                        <div *ngIf="submitted && newProductForm['controls']['cellPhone']['errors']"
+                            class="invalid-feedback">
+                            <div *ngIf="newProductForm['controls']['cellPhone']['errors']['required']">
+                                Cellphone is required
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label for="monthlyIncome" class="col-sm-2 col-form-label">Monthly Income</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="inputPassword" placeholder="Password">
-                        <small id="emailHelp" class="form-text text-muted" style="display: flex;">We'll never share your
-                            email with anyone else.</small>
+                        <input formControlName="monthlyIncome" type="number" class="form-control" id="monthlyIncome"
+                            placeholder="$1`000.000"
+                            [ngClass]="{ 'is-invalid': submitted && newProductForm['controls']['monthlyIncome']['errors'] }">
+                        <small id="emailHelp" class="form-text text-muted" style="display: flex;">
+                            Give us an average income
+                        </small>
+                        <div *ngIf="submitted && newProductForm['controls']['monthlyIncome']['errors']"
+                            class="invalid-feedback">
+                            <div *ngIf="newProductForm['controls']['monthlyIncome']['errors']['required']">
+                                Monthly Income is required
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <button type="submit" class="mb-2 btn btn-primary">Send</button>
-                    <button type="button" class="mt-2 btn btn-outline-danger">Danger</button>
+                <div class="form-group row center-custome">
+                    <button type="submit" class="mb-2 btn btn-primary btn-custome">Send</button>
+                    <button type="button" class="mt-2 btn btn-outline-danger w-50 rounded-pill"
+                        [routerLink]="['/dashboard']">Cancelar</button>
                 </div>
             </form>
         </div>

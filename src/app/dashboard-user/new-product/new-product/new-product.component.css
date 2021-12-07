@@ -1,0 +1,18 @@
+.btn-custome {
+    border-radius: 25px;
+    background-color: #00f2e6;
+    color: white;
+    border: 1px solid #00f2e6;
+    width: 60%;
+}
+
+.center-custome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fonts_ h1, h3{
+    font-size: 25px;
+    font-weight: 600;
+}

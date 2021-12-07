@@ -13,21 +13,25 @@ export class NewProductMockServices implements NewProductDataInterface {
         {
             id: 1,
             nameProduct: 'Agil Credit',
+            cellPhone: 0,
             monthlyIncome: 0,
         },
         {
             id: 2,
             nameProduct: 'Credit Card',
+            cellPhone: 0,
             monthlyIncome: 0,
         },
         {
             id: 3,
             nameProduct: 'Debit Card',
+            cellPhone: 0,
             monthlyIncome: 0,
         },
         {
             id: 4,
             nameProduct: 'Leasing',
+            cellPhone: 0,
             monthlyIncome: 0,
         },
     ]

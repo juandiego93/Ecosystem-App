@@ -28,6 +28,9 @@ import { TransactionDetailComponent } from './dashboard-user/transaction-detail/
 import { HttpClientModule } from '@angular/common/http';
 import { StorageService } from './services/storage/storage.service';
 import { fakeBackendProvider } from 'src/core/serverFake/fake-backend';
+import { NewProductMockServices } from 'src/core/mock/new-products.mock.services';
+import { ProductsService } from 'src/app/services/product/products.service';
+import { NewProductComponent } from './dashboard-user/new-product/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { fakeBackendProvider } from 'src/core/serverFake/fake-backend';
     SummaryComponent,
     CardDetailComponent,
     TransactionDetailComponent,
+    NewProductComponent
   ],
   imports: [
     CommonModule,
@@ -59,9 +63,10 @@ import { fakeBackendProvider } from 'src/core/serverFake/fake-backend';
     //Server Fake
     fakeBackendProvider,
     //Services
-    AuthenticateService, CardService, StorageService,
+    AuthenticateService, CardService, StorageService, ProductsService,
     //Mock Data Services
-    UserDataMockService, CardDataMockService, TransactionDataMockServices],
+    UserDataMockService, CardDataMockService,
+    TransactionDataMockServices, NewProductMockServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

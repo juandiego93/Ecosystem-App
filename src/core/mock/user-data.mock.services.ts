@@ -22,7 +22,7 @@ export class UserDataMockService implements UserDataInterface {
                 this.cardDataMockService.GetCardByID(1),
                 this.cardDataMockService.GetCardByID(2),
             ],
-            services: [],
+            products: [],
 
         },
         {
@@ -36,7 +36,7 @@ export class UserDataMockService implements UserDataInterface {
             cards: [
                 this.cardDataMockService.GetCardByID(3),
             ],
-            services: [],
+            products: [],
         }
     ];
 
