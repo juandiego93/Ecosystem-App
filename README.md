@@ -1,27 +1,49 @@
 # EcosystemGroupApp
+# Hello, this is the "Dream Bank" application. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.3.
+# |------------ Author: ------------|
+# Juan Diego Osorio Castrillón 
+# Software Developer
 
-## Development server
+# |------------ Company to present ------------|
+# Ecosystems Group
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# |------------ Minimal requirements for execution ------------|
+# To run and access the application you must have at least these technologies: 
+# npm: >= 6.14.15
+# https://www.npmjs.com/
 
-## Code scaffolding
+# nodejs: >= v14.18.1
+# https://nodejs.org/es/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Angular CLI: >= 13.0.3
+# https://angular.io/
 
-## Build
+# |------------ Project implementation ------------|
+# To execute the project, the following command must be executed (having already installed the
+ # previous technologies): 
+# npm i 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# This command will install all the packages and libraries needed for the execution. 
+# Note: It is not necessary to create databases, create additional configuration files or folders.
 
-## Running unit tests
+# At the end of the installation run the command 
+# npm i --o 
+# This will open the project in your browser 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# |------------ Credentials ------------|
+# To view the system credentials or users go to: 
 
-## Running end-to-end tests
+# src/core/mock/user-data.mock.services.ts
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# In this file you will see the users in the variable "usersData"; and the credentials will be the fields "IDNumber" and "password". 
 
-## Further help
+# Two usuarios: 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# User 1 
+# IDNumber: 1053830197
+# password: abcd
+
+# User 2
+# IDNumber: 2312332
+# password: abcd
