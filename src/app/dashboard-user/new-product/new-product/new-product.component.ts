@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 export class NewProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,) {
-    this.route.url.forEach(segment => console.log(segment[0].path))
   }
 
   ngOnInit(): void {

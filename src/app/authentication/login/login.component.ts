@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.submitted = true
     if (this.loginForm.valid) {
       this.authService.login(new UserLogin(this.loginForm.value)).subscribe(data => {
+        alertify.success(`You are logged on`)
         this.correctLogin(data)
       }, err => {
         alertify.error(`${err.message}`)
