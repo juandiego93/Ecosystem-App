@@ -31,6 +31,7 @@ import { fakeBackendProvider } from 'src/core/serverFake/fake-backend';
 import { NewProductMockServices } from 'src/core/mock/new-products.mock.services';
 import { ProductsService } from 'src/app/services/product/products.service';
 import { NewProductComponent } from './dashboard-user/new-product/new-product/new-product.component';
+import { RequestDataMockServices } from 'src/core/mock/request-data.mock.services';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { NewProductComponent } from './dashboard-user/new-product/new-product/ne
     AuthenticateService, CardService, StorageService, ProductsService,
     //Mock Data Services
     UserDataMockService, CardDataMockService,
-    TransactionDataMockServices, NewProductMockServices],
+    TransactionDataMockServices, NewProductMockServices,
+    RequestDataMockServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

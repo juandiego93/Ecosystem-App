@@ -1,5 +1,5 @@
 import { Card } from './Card.models'
-import { Product } from './Product.models';
+import { Request } from './Request.models'
 
 export class User {
 
@@ -9,19 +9,19 @@ export class User {
     phone: number
     email: string
     cards: Card[]
-    products: Product[]
+    request: Request[]
     username: string
     password?: string
 
     constructor(IDNumber: number, name: string, lastname: string, phone: number, email: string, cards: Card[],
-        products: Product[], username: string, password: string) {
+        request: Request[], username: string, password: string) {
         this.IDNumber = IDNumber
         this.name = name;
         this.lastname = lastname;
         this.phone = phone
         this.email = email
         this.cards = cards
-        this.products = products
+        this.request = request
         this.username = username
         this.password = password
     }

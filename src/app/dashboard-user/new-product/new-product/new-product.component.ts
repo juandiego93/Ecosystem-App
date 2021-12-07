@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/services/product/products.service';
+import { RequestService } from 'src/app/services/request/reques.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
+import { User } from 'src/core/tools/classes/User.models';
 import { Product } from '../../../../core/tools/classes/Product.models';
 
 @Component({
@@ -18,7 +21,9 @@ export class NewProductComponent implements OnInit {
 
   constructor(
     private productsService: ProductsService,
-    private formBuilder: FormBuilder) {
+    private formBuilder: FormBuilder,
+    private requestService: RequestService,
+    private storageService: StorageService) {
     this.allProductsAvailable = this.productsService.GetProductsData()
     this.productrSelected = { id: 0, nameProduct: '', cellPhone: 0, monthlyIncome: 0 }
     this.newProductForm = this.formBuilder.group({
@@ -35,10 +40,10 @@ export class NewProductComponent implements OnInit {
   }
 
   sendRequestNewProduct() {
-    console.log(this.newProductForm)
     this.submitted = true
     if (this.newProductForm.valid) {
-      alert('Valido')
+      const user_: User = this.storageService.getCurrentUser()
+      this.requestService.saveNewRequestOfUser(user_.IDNumber, this.newProductForm.value)
     }
   }
 
